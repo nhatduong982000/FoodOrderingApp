@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:FoodOrderApp.ViewModels"
+             xmlns:controls="clr-namespace:Xamarin.Forms.BackgroundVideoView;assembly=Xamarin.Forms.BackgroundVideoView"
+             x:Class="FoodOrderApp.Views.LoginView"
+             Visual="Material"
+             BackgroundImageSource="MainThemeLogo">
+
+             
+        <ContentPage.BindingContext>
+            <vm:LoginViewModel/>
+        </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <Grid Padding="20" VerticalOptions="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0" VerticalOptions="Center">
+                <Image Source=""
+                           WidthRequest="100" HeightRequest="300"/>
+                <Label Text="Login Form" TextColor="#87CEFA"
+                            FontSize="40" HorizontalOptions="Center" FontFamily="MyFont3" Style="{StaticResource CabinSketch}"/>
+            </StackLayout>
+
+            <StackLayout Grid.Row="1" Spacing="10">
+                <Entry Placeholder="User name" Text="{Binding Username}" TextColor="#black"/>
+                <Entry Placeholder="Password" Text="{Binding Password}" IsPassword="True" TextColor="black"/>
+
+                <Button Text="Login" HorizontalOptions="Center" BackgroundColor="Purple"
+                        TextColor="white" WidthRequest="200" HeightRequest="60" CornerRadius="20"
+                        Command="{Binding LoginCommand}"/>
+
+                <Label Text="New Users :" FontFamily="MyFont2"/>
+                <Button Text="Register" HorizontalOptions="Center" BackgroundColor="Purple"
+                        TextColor="white" WidthRequest="200" HeightRequest="60" CornerRadius="20"
+                        Command="{Binding RegisterCommand}"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>

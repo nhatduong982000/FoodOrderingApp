@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:helper="clr-namespace:FoodOrderApp.Helpers"
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:vm="clr-namespace:FoodOrderApp.ViewModels"
+             x:Class="FoodOrderApp.Views.LogoutView"
+             BackgroundColor="LimeGreen"
+             Visual="Material">
+    <ContentPage.BindingContext>
+        <vm:LoginViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <ImageButton Source="" Grid.Row="0" HorizontalOptions="Start" Aspect="AspectFit"
+                         VerticalOptions="Start" Margin="10,30" Clicked="ImageButton_Clicked"/>
+            <Label Text="Crab Food" FontSize="40" TextColor="WhiteSmoke"
+                   FontFamily="MyFont" HorizontalOptions="Center" VerticalOptions="Start"/>
+
+            <Label x:Name="LabelName" FontSize="Subtitle" Margin="20,0" TextColor="WhiteSmoke"
+                   HorizontalOptions="Center" VerticalOptions="End"/>
+            <pancake:PancakeView BackgroundColor="WhiteSmoke" CornerRadius="60,60,0,0"
+                                 Grid.Row="1">
+                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                    <StackLayout IsVisible="{Binding IsCartExists}">
+                        
+                        <Label Text="{Binding UserCartItemsCount, StringFormat='Your Cart Contains {0} items'}"/>
+                    </StackLayout>
+
+                    <StackLayout>
+                        <Label Text="Are you sure you wanted to logout ?"/>
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Button Text="Yes" HorizontalOptions="Center"
+                                    Background="red" CornerRadius="20"
+                                    Clicked="Button_Clicked"/>
+
+                            <Button Text="NO" HorizontalOptions="Center"
+                                    BackgroundColor="LightGreen" CornerRadius="20"
+                                    Clicked="Button_Clicked_1"/>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </pancake:PancakeView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
